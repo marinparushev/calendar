@@ -20,8 +20,6 @@ class Autocomplete extends Component {
 
     this.onInput = this.onInput.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
-    this.onBlur = this.onBlur.bind(this);
-    this.onFocus = this.onFocus.bind(this);
     this.onItemClick = this.onItemClick.bind(this);
   }
 
@@ -58,14 +56,6 @@ class Autocomplete extends Component {
     } else if (e.keyCode === KEY_CODES.ESCAPE) {
       this.closeList();
     }
-  }
-
-  onBlur(e) {
-    //this.setState({ value: "" });
-  }
-
-  onFocus(e) {
-    //this.setState({ value: this.refs.autocompleteInput.value});
   }
 
   onItemClick(e) {
@@ -118,9 +108,7 @@ class Autocomplete extends Component {
             type="text"
             ref="autocompleteInput"
             onInput={this.onInput}
-            onKeyDown={this.onKeyDown}
-            onBlur={this.onBlur}
-            onFocus={this.onFocus}/>
+            onKeyDown={this.onKeyDown} />
           <div className="autocomplete-items" ref="autocompleteList">
             {this.renderSuggestions()}
           </div>
