@@ -1,0 +1,10 @@
+.event-title {
+  max-width: 100px;
+  display: inline-block;
+}
+
+.event-delete-button {
+  margin: 0 2px;
+  vertical-align: top;
+  float: right;
+}

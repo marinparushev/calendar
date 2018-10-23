@@ -1,0 +1,57 @@
+.day {
+  width: 150px;
+  height: 100px;
+  cursor: context-menu;
+}
+
+.day .day-inner {
+  border: 1px solid #ababab;
+  background-color: white;
+  width: 150px;
+  height: 100px;
+  left: 0;
+  top: 0;
+  -webkit-transition: width .25s, height .25s, left .25s, top .25s; /* For Safari 3.1 to 6.0 */
+  transition: width .25s, height .25s, left .25s, top .25s;
+  overflow: auto;
+}
+
+.day-and-date {
+  padding: 0 4px;
+}
+
+.day.dimmed .day-inner {
+  background-color: gray;
+}
+
+.day.dimmed .day-name,
+.day.dimmed .day-date,
+.day.dimmed .events {
+  color: white;
+}
+
+.day.today .day-inner {
+  background-color: DodgerBlue;
+}
+
+.day.day-highlight .day-inner {
+  background-color: limegreen;
+}
+
+.day .events {
+  overflow: auto;
+  padding-left: 4px;
+  flex-grow: 1;
+}
+
+.event {
+  cursor: pointer;
+}
+
+.day:hover .day-inner {
+  width: 210px;
+  height: 140px;
+  position: relative;
+  left: -30px;
+  top: -20px;
+}

@@ -1,0 +1,18 @@
+.navigation {
+  padding: 0 8px;
+}
+
+.btn-rewind, .btn-arrowleft {
+  margin-right: 8px;
+}
+
+.btn-arrowright, .btn-fastforward, .btn-today {
+  margin-left: 8px;
+}
+
+.month-and-year {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+  font-weight: bold
+}
