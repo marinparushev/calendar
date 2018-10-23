@@ -96,7 +96,10 @@ class Main extends Component {
   onFastForward() {
     const { date } = this.state;
     const fastForwardDate = new Date(date.getFullYear() + 1, date.getMonth(), date.getDate());
-    this.setState({ date: fastForwardDate });
+    this.setState({ 
+      date: fastForwardDate,
+      highlightDate: null
+    });
   }
 
   /**
@@ -105,7 +108,10 @@ class Main extends Component {
   onClickPrevious() {
     const { date } = this.state;
     const prevDate = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate());
-    this.setState({ date: prevDate });
+    this.setState({
+      date: prevDate,
+      highlightDate: null
+    });
   }
 
   /**
@@ -114,7 +120,10 @@ class Main extends Component {
   onClickNext() {
     const { date } = this.state,
           nextDate = new Date(date.getFullYear(), date.getMonth() + 1, date.getDate());
-    this.setState({ date: nextDate });
+    this.setState({
+      date: nextDate,
+      highlightDate: null
+    });
   }
 
   /**
@@ -122,7 +131,10 @@ class Main extends Component {
    */
   onClickToday() {
     const date = new Date();
-    this.setState({ date });
+    this.setState({
+      date,
+      highlightDate: null
+    });
   }
 
   /**
