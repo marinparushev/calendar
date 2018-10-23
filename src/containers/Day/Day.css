@@ -20,12 +20,15 @@
   padding: 0 4px;
 }
 
+.day-weekend .day-and-date {
+  color: crimson;
+}
+
 .day.dimmed .day-inner {
   background-color: gray;
 }
 
-.day.dimmed .day-name,
-.day.dimmed .day-date,
+.day.dimmed .day-and-date,
 .day.dimmed .events {
   color: white;
 }
@@ -48,7 +51,7 @@
   cursor: pointer;
 }
 
-.day:hover .day-inner {
+.day.day-with-events:hover .day-inner {
   width: 210px;
   height: 140px;
   position: relative;

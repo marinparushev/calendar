@@ -69,7 +69,8 @@ class Month extends Component {
       const dayName = DAYS_OF_WEEK[i] || "",
             isDimmed = currentDay.getMonth() !== date.getMonth(),
             isToday = this.isSameDay(currentDay, dateNow),
-            isHighlighted = highlightDate && this.isSameDay(currentDay, highlightDate);
+            isHighlighted = highlightDate && this.isSameDay(currentDay, highlightDate),
+            isWeekend = currentDay.getDay() === 0 || currentDay.getDay() === 6;
 
       const todaysEvents = this.props.events && this.props.events.filter( function(event) {
         return this.isSameDay(event.date, currentDay);
@@ -82,7 +83,8 @@ class Month extends Component {
           date={currentDay.getDate()}
           dimmed={isDimmed}
           today={isToday}
-          highlight={isHighlighted}
+          isHighlighted={isHighlighted}
+          isWeekend={isWeekend}
           events={todaysEvents}
           onEventDelete={this.props.onEventDelete}
         />

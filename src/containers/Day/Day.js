@@ -14,7 +14,17 @@ class Day extends Component {
   }
 
   renderEvents() {
-    return this.props.events && this.props.events.map( (event, index) => {
+    if (this.props.events.length > 0) {
+      return (
+        <div className="events">
+          {this.renderEventDetails()}
+        </div>
+      )
+    }
+  }
+
+  renderEventDetails() {
+    return this.props.events.map( (event, index) => {
       return (
         <EventDetails
           key={index}
@@ -40,8 +50,16 @@ class Day extends Component {
       classNamesArr.push('today');
     }
 
-    if (this.props.highlight) {
+    if (this.props.isHighlighted) {
       classNamesArr.push("day-highlight");
+    }
+
+    if (this.props.events.length > 0) {
+      classNamesArr.push("day-with-events");
+    }
+
+    if (this.props.isWeekend) {
+      classNamesArr.push("day-weekend");
     }
 
     return classNamesArr.join(' ');
@@ -55,9 +73,7 @@ class Day extends Component {
             {this.renderName()}
             <span className="day-date">{this.props.date || 1}</span>
           </div>
-          <div className="events">
-            {this.renderEvents()}
-          </div>
+          {this.renderEvents()}
         </div>
       </div>
     );
