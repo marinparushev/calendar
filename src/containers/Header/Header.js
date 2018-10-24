@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './Header.css'
 import Autocomplete from '../Autocomplete/Autocomplete';
 import { CALENDAR_USER } from '../Login/Login';
 
 class Header extends Component {
+  static propTypes = {
+    onRefresh: PropTypes.func,
+    username: PropTypes.string,
+    events: PropTypes.array,
+    onEventSelect: PropTypes.func
+  }
+
   constructor() {
     super();
 

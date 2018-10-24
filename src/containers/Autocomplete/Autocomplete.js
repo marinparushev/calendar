@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './Autocomplete.css';
 
@@ -10,6 +11,11 @@ const KEY_CODES = {
 }
 
 class Autocomplete extends Component {
+  static propTypes = {
+    data: PropTypes.array,
+    onSelect: PropTypes.func
+  }
+
   constructor(props) {
     super(props);
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Day from '../Day/Day';
+
 import './Month.css';
 
 const DAYS_OF_WEEK = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -8,6 +10,13 @@ const DAYS_IN_WEEK = 7;
 const DAY_IN_MILLISECONDS = 86400000; // Milliseconds in 1 day
 
 class Month extends Component {
+  static propTypes = {
+    date: PropTypes.object,
+    highlightDate: PropTypes.object,
+    events: PropTypes.array,
+    onEventDelete: PropTypes.func
+  }
+
   /**
    * 
    * @param {Date} date
@@ -81,8 +90,8 @@ class Month extends Component {
           key={i}
           day={dayName}
           date={currentDay.getDate()}
-          dimmed={isDimmed}
-          today={isToday}
+          isDimmed={isDimmed}
+          isToday={isToday}
           isHighlighted={isHighlighted}
           isWeekend={isWeekend}
           events={todaysEvents}

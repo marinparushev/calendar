@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './Navigation.css';
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 class Navigation extends Component {
+  static propTypes = {
+    date: PropTypes.object,
+    onRewind: PropTypes.func,
+    onClickPrevious: PropTypes.func,
+    onClickNext: PropTypes.func,
+    onFastForward: PropTypes.func,
+    onClickToday: PropTypes.func
+  }
 
   render() {
     const { onRewind, onClickPrevious, onClickNext, onFastForward, onClickToday, date } = this.props;

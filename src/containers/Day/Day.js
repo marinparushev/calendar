@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import EventDetails from '../EventDetails/EventDetails';
 
 import './Day.css';
 
 class Day extends Component {
+  static propTypes = {
+    day: PropTypes.string,
+    date: PropTypes.number,
+    isDimmed: PropTypes.bool,
+    isToday: PropTypes.bool,
+    isHighlighted: PropTypes.bool,
+    isWeekend: PropTypes.bool,
+    events: PropTypes.array,
+    onEventDelete: PropTypes.func
+  }
+
   renderName() {
     if (this.props.day) {
       return (
@@ -42,24 +54,24 @@ class Day extends Component {
   getClasses() {
     const classNamesArr = ['day'];
 
-    if (this.props.dimmed) {
+    if (this.props.isDimmed) {
       classNamesArr.push('dimmed')
     }
 
-    if (this.props.today) {
+    if (this.props.isToday) {
       classNamesArr.push('today');
     }
 
     if (this.props.isHighlighted) {
-      classNamesArr.push("day-highlight");
+      classNamesArr.push('day-highlight');
     }
 
     if (this.props.events.length > 0) {
-      classNamesArr.push("day-with-events");
+      classNamesArr.push('day-with-events');
     }
 
     if (this.props.isWeekend) {
-      classNamesArr.push("day-weekend");
+      classNamesArr.push('day-weekend');
     }
 
     return classNamesArr.join(' ');

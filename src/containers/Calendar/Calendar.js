@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Navigation from '../Navigation/Navigation';
 import Month from '../Month/Month';
 
 class Calendar extends Component {
+  static propTypes = {
+    date: PropTypes.object,
+    highlightDate: PropTypes.object,
+    events: PropTypes.array,
+    onRewind: PropTypes.func,
+    onClickPrevious: PropTypes.func,
+    onClickNext: PropTypes.func,
+    onFastForward: PropTypes.func,
+    onClickToday: PropTypes.func,
+    onEventDelete: PropTypes.func
+  }
   render() {
     return (
       <div className="calendar">

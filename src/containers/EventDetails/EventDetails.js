@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './EventDetails.css';
 
 class EventDetails extends Component {
-  onDelete() {
-    this.props.onEventDelete(this.props.eventId);
+  static propTypes = {
+    eventId: PropTypes.number,
+    onEventDelete: PropTypes.func,
+    title: PropTypes.string,
+    details: PropTypes.string
   }
 
-  renderName() {
-    if (this.props.day) {
-      return (
-        <span className="day-name">{this.props.day}, </span>
-      )
-    }
+  constructor(props) {
+    super(props);
+
+    this.onDelete = this.onDelete.bind(this);
+  }
+
+  onDelete() {
+    this.props.onEventDelete(this.props.eventId);
   }
 
   render() {
@@ -20,7 +26,7 @@ class EventDetails extends Component {
       <div className="event">
         <div>
           <strong className="event-title">{this.props.title}</strong>
-          <button className="event-delete-button" onClick={this.onDelete.bind(this)}>
+          <button className="event-delete-button" onClick={this.onDelete}>
             <i className="icon ion-md-trash"></i>
           </button>
         </div>
