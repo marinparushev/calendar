@@ -15,6 +15,7 @@ class AddEvent extends Component {
     require('moment/locale/bg');
 
     this.onSubmit = this.onSubmit.bind(this);
+    this.onCancel = this.onCancel.bind(this)
   }
 
   componentWillMount() {
@@ -28,6 +29,10 @@ class AddEvent extends Component {
 
     this.saveEvent();
     
+    this.props.history.push('/main');
+  }
+
+  onCancel(e) {
     this.props.history.push('/main');
   }
 
@@ -65,7 +70,7 @@ class AddEvent extends Component {
     }
 
     return (
-      <div className="addEvent">
+      <div className="add-event">
         <form className="add-user-form" onSubmit={this.onSubmit}>
           <div className="form-row">
             <label>Event title</label>
@@ -84,6 +89,7 @@ class AddEvent extends Component {
             <DateTime ref="datetime"/>
           </div>
           <button type="submit">Add</button>
+          <button className="cancel-button" type="button" onClick={this.onCancel}>Cancel</button>
         </form>
       </div>
     );

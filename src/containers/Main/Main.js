@@ -168,7 +168,7 @@ class Main extends Component {
     }
 
     return (
-      <div className="Main">
+      <div className="main">
         <Header
           onRefresh={this.onRefresh}
           username={this.state.username}
